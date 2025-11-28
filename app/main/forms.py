@@ -1,12 +1,18 @@
-# app/main/forms.py
-
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
-class NameForm(FlaskForm):
-    # Campo de texto obrigatório
-    name = StringField('Qual é o seu nome?', validators=[DataRequired()])
+class AlunoForm(FlaskForm):
+    nome = StringField('Cadastre o novo Aluno:', validators=[DataRequired()])
     
-    # Botão de envio
+
+    disciplina = SelectField('Disciplina associada:', choices=[
+        ('DSWA5', 'DSWA5'),
+        ('GPSA5', 'GPSA5'),
+        ('IHCA5', 'IHCA5'),
+        ('SODA5', 'SODA5'),
+        ('PJIA5', 'PJIA5'),
+        ('TCOA5', 'TCOA5')
+    ])
+    
     submit = SubmitField('Cadastrar')

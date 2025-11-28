@@ -1,43 +1,40 @@
-{# --- HERANÇA DE TEMPLATE --- #}
-{# A linha abaixo traz todo o CSS e JS do Bootstrap. É a "forma do bolo". #}
 {% extends "bootstrap/base.html" %}
 
-{# --- BLOCO DE TÍTULO --- #}
-{# Define o texto da aba do navegador #}
-{% block title %}Sistema de Eventos{% endblock %}
+{% block title %}Avaliação Semestral{% endblock %}
 
-{# --- BLOCO DA BARRA DE NAVEGAÇÃO --- #}
-{# Estamos substituindo a barra padrão do Bootstrap pela nossa personalizada #}
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-
-        <div class="navbar-header">
+<div class="navbar navbar-inverse" role="navigation" style="border-radius: 0;">
+    <div class="container-fluid"> <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">EventosApp</a>
+            <a class="navbar-brand" href="/">Avaliação semestral</a>
         </div>
-
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/sobre">Sobre</a></li>
-                <li><a href="/emailsEnviados">Lista E-mails</a></li>
+                <li><a href="/professores">Cadastro de Professores</a></li>
+                <li><a href="/disciplinas">Cadastro de Disciplinas</a></li>
+                <li><a href="/alunos">Cadastro de Alunos</a></li>
+                <li><a href="/cursos">Cadastro de Cursos</a></li>
+                <li><a href="/ocorrencias">Cadastro de Ocorrências</a></li>
             </ul>
         </div>
     </div>
 </div>
 {% endblock %}
 
-{# --- BLOCO DE CONTEÚDO --- #}
-{# Aqui definimos a área onde as outras páginas (como index.html) vão injetar conteúdo #}
 {% block content %}
 <div class="container">
-    {# Este bloco 'page_content' está vazio aqui, esperando para ser preenchido #}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
