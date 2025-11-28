@@ -1,6 +1,6 @@
 import os
 from app import create_app, db
-from app.models import User, Role, Email # Vamos mover esses models jajá
+from app.models import User, Role, Email
 
 # Cria a aplicação usando a fábrica
 app = create_app()

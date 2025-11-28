@@ -66,7 +66,7 @@ def index():
     # Adicionamos a rota Sobre que estava faltando
 @main.route('/sobre')
 def sobre():
-    return "<h1>Página sobre o sistema de eventos</h1>"
+    return render_template('sobre.html')
 
 
 # Rota de E-mails Enviados
